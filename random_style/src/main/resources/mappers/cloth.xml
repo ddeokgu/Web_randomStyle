@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cloth">
+
+	<!-- <select id="file_info" resultType = "String"> select picture_url from 
+		product where product_id = #{product_id} </select> -->
+
+	<select id="cloth_list" resultType="com.example.randomStyle.model.cloth.dto.ClothDTO">
+		select * from cloth where userid = #{userid} and category = #{category}
+	</select>
+	
+	<select id="cloth_all_list" resultType="com.example.randomStyle.model.cloth.dto.ClothDTO">
+		select * from cloth where userid = #{userid}
+	</select>
+
+	<insert id="cloth_insert">
+		insert into cloth(no, userid, category, photo_url)
+		values ((select ifnull(max(no+1), 1) from cloth a),
+		#{userid}, #{category}, #{photo_url})
+
+	</insert>
+	
+	<delete id = "cloth_delete">
+		delete from cloth where no = #{no}
+	</delete>
+	
+	<select id = "cloth_detail" resultType = "String">
+		select photo_url from cloth where no = #{no}
+	</select>
+	
+	
+	
+	<!-- 
+	<select id="board_detail" resultType = "com.example.randomStyle.model.board.dto.BoardDTO"> 
+	select * from board where no = #{no}
+	</select>
+	
+	
+	<update id = "board_likes"> 
+	update board set likes=likes + 1 where no = #{no} and userid = #{userid}
+	 </update>
+	 
+	 <update id = "board_likes_min"> 
+	update board set likes=likes - 1 where no = #{no} and userid = #{userid}
+	 </update>
+	 
+	 <select id = "count_likes" resultType = "int">
+	 select likes from board where no = #{no}
+	 </select>
+	 
+	 <select id = "board_list_userid" resultType = "com.example.randomStyle.model.board.dto.BoardDTO">
+	 	select * from board where userid = #{userid}
+	 </select>
+	 
+
+ -->		
+		 
+		
+		<!--  <delete id = "delete_product"> 
+		delete from product where product_id = #{product_id} </delete> -->
+ 
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

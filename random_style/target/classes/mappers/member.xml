@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+
+	<select id="login_check" resultType = "String">
+		select name from member where userid=#{userid} and passwd=hex(aes_encrypt(#{userid}, #{passwd}))	
+	</select>
+	
+	<insert id = "member_insert">
+	
+	insert into member (userid, passwd, name, email, zipcode, address1, address2, tel, phone) 
+	values (#{userid}, hex(aes_encrypt(#{userid}, #{passwd})),
+			 #{name}, #{email}, #{zipcode}, #{address1}, #{address2}, #{tel}, #{phone})
+	</insert>
+	
+	<select id = "id_check" resultType = "int">
+		select count(*) from member where userid = #{userid} 
+	</select>
+	
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

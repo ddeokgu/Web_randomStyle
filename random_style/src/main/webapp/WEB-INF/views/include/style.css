@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.a {
+	text-align: center;
+    color: #FFDDA6;
+    font-size: 70px;
+    text-decoration : underline;
+    text-underline-position: under;
+	
+}
+
+
+
+
+
+img {
+	display:block;
+	margin:auto;
+	width:500px; 
+	height:450px;
+}
+
+
+

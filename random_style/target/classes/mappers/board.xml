@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board">
+
+	<select id="board_list"
+		resultType="com.example.randomStyle.model.board.dto.BoardDTO">
+		select * from board
+		order by likes desc, no asc
+	</select>
+
+	<insert id="board_write"> 
+		insert into board(userid, title, contents,
+		Photo1_url,Photo2_url)
+		values (#{userid}, #{title}, #{contents}, #{photo1_url}, #{photo2_url})
+
+	</insert>
+
+	<delete id="board_delete">
+		delete from board where no= #{b_no}
+	</delete>
+
+	<select id="board_detail"
+		resultType="com.example.randomStyle.model.board.dto.BoardDTO">
+		select * from board where no = #{no}
+	</select>
+
+	<select id="board_likes_check" resultType="int">
+		select count(*) from likes_check where b_no = #{b_no} and userid = #{userid}
+	</select>
+
+	<insert id="board_likes_check_insert">
+		insert into likes_check (userid, b_no) values (#{userid}, #{b_no})
+	</insert>
+
+	<delete id="board_likes_check_delete">
+		delete from likes_check where b_no = #{b_no} and userid = #{userid}
+	</delete>
+
+	<update id="board_likes">
+		update board set likes=likes + 1 where no = #{no}
+	</update>
+
+	<update id="board_likes_min">
+		update board set likes=likes - 1 where no = #{no}
+	</update>
+
+	<update id="increaseViews">
+		update board
+		set views=views+1 where no = #{no}
+	</update>
+
+	<select id="count_likes" resultType="int">
+		select likes from board where no = #{no}
+	</select>
+
+	<select id="board_list_userid"
+		resultType="com.example.randomStyle.model.board.dto.BoardDTO">
+		select * from board where userid = #{userid}
+	</select>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

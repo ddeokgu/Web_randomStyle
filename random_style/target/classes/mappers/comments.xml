@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="comments">
+	
+	<select id="comments_list" resultType="com.example.randomStyle.model.comments.dto.CommentsDTO">
+		select c.b_no, c_no, c.userid, c.comments, c.write_date 
+		from board b, comments c 
+		where b.no=${b_no} and c.b_no = b.no
+		order by c_no
+	</select>
+
+
+	<insert id="comments_write">
+		insert into comments (b_no, c_no, userid, comments)
+		values (#{b_no}, (select ifnull(max(c_no)+1, 1) from comments a),
+		#{userid}, #{comments})
+
+	</insert>
+	
+	
+	<delete id="comments_delete">
+		delete from comments where c_no = ${c_no}
+	</delete>
+	
+	<update id = "comments_update"> 
+		update board set comments=comments + 1 where no = #{bno}
+	 </update>
+	 
+	 <update id = "comments_update_min"> 
+		update board set comments=comments - 1 where no = #{bno}
+	 </update>
+	
+	
+	
+	 <select id = "comments_count" resultType = "int">
+	 select count(comments) from comments where b_no = #{b_no}
+	 </select>
+	
+	
+</mapper>
