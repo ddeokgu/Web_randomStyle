@@ -105,10 +105,33 @@ public class CommentsController {
 	}
 	
 	@RequestMapping("and_comments_update.do")
-	public String and_comments_update(@RequestParam int b_no){
+	public void and_comments_update(@RequestParam int b_no){
 		System.out.println("b_no========" + b_no);
 		commentsService.Comments_update(b_no);	
-		return "redirect:/board/and_board_detail.do?no="+b_no;
+		
+		
+		
+	}
+	@RequestMapping("and_comments_delete.do")	
+	public String and_comments_delete(@RequestParam int c_no,@RequestParam int b_no) { 
+		System.out.println("delete========"+c_no+","+b_no);
+		commentsService.Comments_delete(c_no);
+		return "redirect:/comments/and_comments_update_min.do?b_no="+b_no; 
+		
+	}
+	
+	@RequestMapping("and_comments_update_min.do") 
+	public void and_comments_update_min(@RequestParam int b_no){
+		System.out.println("min========" + b_no); 
+		commentsService.Comments_update_min(b_no);	
+
+		
+	}
+	@RequestMapping("and_comments_count.do")
+	@ResponseBody
+	public int and_comments_count(@RequestParam int b_no){
+		int result = commentsService.Count_Comments(b_no);
+		return result; 
 		
 		
 	}

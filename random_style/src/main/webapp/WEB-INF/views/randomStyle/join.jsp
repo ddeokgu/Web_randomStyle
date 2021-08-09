@@ -210,8 +210,6 @@ h3 {
 					<option value= "yahoo.co.kr">yahoo.co.kr</option>
 				</select>
 	
-			<button style="margin-bottom:10px" type="button" id="checkEmail">이메일 인증</button><br> 
-			
 			<span class="d">주소</span><br> 
 			<input type="text" id="zipcode" class="c" placeholder="우편번호" style="width:60px;"> 
 			<input type="button" onclick="showPostcode()" value="우편번호찾기"><br> 

@@ -127,6 +127,7 @@ public class BoardController {
 
 	@RequestMapping("likes.do")
 	public String likes(@RequestParam int no, @RequestParam String userid) {
+		System.out.println("likes");
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("no", no);
 		map.put("userid", userid);
@@ -137,6 +138,7 @@ public class BoardController {
 
 	@RequestMapping("likes_min.do")
 	public String likes_min(@RequestParam int no, @RequestParam String userid) {
+		System.out.println("likes_min");
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("no", no);
 		map.put("userid", userid);

@@ -12,8 +12,7 @@
 h3 {
 	text-align: center;
     color: black;
-    text-underline-position: under;
-	
+    text-underline-position: under;	
 } 
 
 
@@ -26,13 +25,14 @@ background: none;
  table {
    	margin-left:auto; 
    	margin-right:auto;
-    border-top: 1px solid #444444;
-    border-collapse: collapse;
-  }
-  /* td {
-    border-bottom: 1px solid #444444;
-    padding: 10px;
-  }  */
+   	border-radius: 10px;
+   	
+  } 
+  .button {
+	background: black;
+	color: white;
+	
+}
 </style>
 <script>
 
@@ -156,12 +156,13 @@ $("#btnComments").click(function(){
 	if($("#comments_div").css("display") == "none") {
 	$("#comments_div").show();
 	$.ajax({
-		type: "post",
+		type: "post", 
 		url : "${path}/comments/comments_list.do",
 		data: "b_no=" + $("#no").val(),
 		success:  function(result){
 			$("#comments").val("");
 			 	$("#list_div").html(result);
+			 	console.log(result);
 			 	
 			}
 		});
@@ -194,30 +195,35 @@ $("#btnShare").click(function btnShare(){
 <% String userid = (String)session.getAttribute("userid"); %>
 <input type = "hidden" id = "sessionId" value = <%=userid%>>
 <h1 class = "a"><a style = "color:#FFDDA6;"href = "${path}/member/main.do">오늘의 랜덤 스타일</a></h1>
-<h3><input type ="hidden" id ="userid" value = "${dto.userid}">${dto.userid}</h3>
+<input type ="hidden" id ="userid" value = "${dto.userid}">
 <input id = "no" name = "no" type = "hidden" value = "${dto.no}">
-<table style="border:2px solid green;">
+<table style="border:1px solid gray;">
 
-	<tr style="border:1px solid green;"> 
-		<td colspan ="5"><h3>${dto.title}</h3></td>
+	<tr>
+		<td colspan ="5" style="border-bottom: none;"><h4 style="text-align: center; margin-top: 0px; margin-bottom: 0px;">${dto.title}</h4></td>
 		
 	</tr>
-	<tr>
-		<td colspan ="5"><img src="<spring:url value = '/board/${dto.photo1_url}'/>" 
+	<tr> 
+		<td colspan ="5" style="border-top: none; border-bottom: none;"><img src="<spring:url value = '/board/${dto.photo1_url}'/>" 
 		width="300px" height="300px"/></td> 
 	</tr>
-	<tr style="border:1px solid green;">
-		<td style="width: 50px;"><button type="button" id = "btnLikes">
+	<tr>
+		<td style="width: 30px;">
+		<button type="button" id = "btnLikes">
 				<img id="heart" src ="${path}/images/heart1.jpeg" style="width:30px; height:30px;"></button></td>
-		<td><div style="border-left:none;" id = "div1">${dto.likes}</div></td>
-		<td style="width: 50px;"><button type="button" id = "btnComments">
+		<td style="width: 30px;">
+			<div style="border-left:none;" id = "div1">${dto.likes}</div></td>
+		<td style="width: 40px;">
+			<button type="button" id = "btnComments">
 				<img src="${path}/images/comments.png" style="width:30px; height:30px;"></button></td>
-		<td><div id = "div2">${dto.comments}</div></td>
-		<td><button type="button" id = "btnShare" >
-				<img src="${path}/images/share.png" style="width:30px; height:30px;"></button></td>
+			<td style="width: 30px;">
+		<div id = "div2">${dto.comments}</div></td>
+			<td>
+		<button type="button" id = "btnShare" >
+				<img src="${path}/images/share.png" style="width:25px; height:25px;"></button></td>
 	</tr>
 	<tr>
-		<td colspan="5"><div style="font-size:15px; margin-top:10px;">${dto.contents}</div></td>
+		<td colspan="5"><span style="font-weight: bold;">${dto.userid}</span><div style="font-size:15px; margin-top:10px;">${dto.contents}</div></td>
 	</tr>
 </table>
 
@@ -226,19 +232,20 @@ $("#btnShare").click(function btnShare(){
 <div id = "comments_div" style="display: none; ">
 <form style="text-align:center;" name = "form1" method = "post" action = "${path}/comments/comments_write.do">
 <input id = "b_no" name = "b_no" type = "hidden" value = "${dto.no}">
-<table border = "1" style="text-align: center; margin:auto; margin-top:5px; border:2px solid green;"> 
+<table style="text-align: center; margin:auto; margin-top:5px;"> 
 	<tr style = "background-color:#FFDDA6;">
 		<td> <input type = "hidden" name="userid" value = "${userid}">${userid}</td>
 	</tr>
 	<tr>
-		<td><input type = "text" name = "comments" id = "comments"></td>
+		<td style="padding-top: 5px;
+    padding-bottom: 5px;"><input type = "text" name = "comments" id = "comments"></td>
 	</tr>
 	<tr>
-		<td><input type = "submit" value = "확인"></td>
+		<td><input class="button" type = "submit" value = "ADD"></td>
 	</tr>
-</table>
+</table> 
 </form>
-<div style ="margin-top:10px; " id = "list_div"></div>
+<div style ="margin-top:10px;" id = "list_div"></div>
 </div>
 
 </body>

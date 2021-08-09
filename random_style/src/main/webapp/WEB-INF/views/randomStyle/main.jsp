@@ -7,6 +7,14 @@
 <title>Insert title here</title>
 <%@ include file="../include/header.jsp" %>
 <link rel = "stylesheet" href = "${path}/include/style.css">
+<style>
+	 
+ .b {
+  	font-size: 15px;
+  	margin-right: 10px;
+  	
+}
+</style>
 <script>
 
 	function category_check(check){ 
@@ -56,9 +64,9 @@ function random() {
 <h1 class = "a"><a style= "color:#FFDDA6;" href = "${path}/member/main.do">오늘의 랜덤 스타일</a></h1>
 <div style="text-align:center; height: 50px;">
  
-<button id = "btnBoard" onclick="location.href='${path}/board/list.do'">게시판</button>
-<button id = "btnShop">쇼핑몰</button>
-<button id = "btnUser" onclick="location.href='${path}/board/list_userid.do?userid=${userid}'">${userid}</button>
+<button class = "b" id = "btnBoard" onclick="location.href='${path}/board/list.do'">BOARD</button>
+<button class = "b" id = "btnShop">SHOP</button>
+<button style = "font-size: 15px; text-transform:uppercase;"id = "btnUser" onclick="location.href='${path}/board/list_userid.do?userid=${userid}'">${userid}</button>
 </div>
 
 <div style="text-align:center">

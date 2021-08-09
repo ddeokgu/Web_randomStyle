@@ -8,16 +8,16 @@
 <%@ include file = "../include/header.jsp" %>
 <link rel = "stylesheet" href = "${path}/include/style.css">
 <style>
+ 
 
-
-h3 {
-	text-align: center;
-    color: black;
-    text-decoration : underline;
-    text-underline-position: under;
-	
-} 
-
+  .b {
+  	margin-top: 10px;
+	background: black;
+	color: white;
+}
+.c {
+ border-radius: 10px;
+}
 </style>
 <script>
 <%
@@ -48,8 +48,6 @@ function board_write(){
 			
 		} 
 		
-		
-		
 		document.form1.action = "${path}/board/board_write.do";
 		document.form1.submit();
 	}
@@ -59,16 +57,16 @@ function board_write(){
 <body>
 <%@ include file = "../include/menu.jsp" %>
 <h1 class = "a"><a style="color:#FFDDA6;" href = "${path}/member/main.do">오늘의 랜덤 스타일</a></h1>
-<h3>글쓰기</h3>
+
 
 <div style = "text-align:center;">
 <form id = "form1" name = "form1" method = "post" enctype = "multipart/form-data">
 
-	<table align = "center"border="1" bordercolor="green">
+	<table align= "center" style="text-align:center; border:none;">
 		<tr>
 		
 			<td>아이디</td>
-			<td><input type = "hidden" name = "userid" value = "<%=userid%>"><%=userid%></td>
+			<td><input class="c" type = "hidden" name = "userid" value = "<%=userid%>"><%=userid%></td>
 		</tr>
 		<tr>
 		
@@ -88,12 +86,12 @@ function board_write(){
 			
 		<tr>
 			<td>내용</td>
-			<td><textarea style = "width:500px; height:300px;" name = "contents" id = "contents"></textarea></td>
+			<td><textarea class="c" style = "width:500px; height:300px;" name = "contents" id = "contents"></textarea></td>
 		</tr>
 		<tr>
 			<td colspan = "2" align = "center">
-			<input type = "button" value = "등록" onclick = "board_write()">
-			<input type = "button" value = "목록" onclick = "location.href='${path}/board/list.do';">
+			<input class="b" type = "button" value = "WRITE" onclick = "board_write()">
+			<input class="b" type = "button" value = "LIST" onclick = "location.href='${path}/board/list.do';">
 			</td>
 		</tr>
 	</table>

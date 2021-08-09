@@ -38,14 +38,14 @@ public class CommentsDAOImpl implements CommentsDAO {
 	
 	@Override
 	public void Comments_update(int b_no) { 
-		sqlSession.delete("comments.comments_update", b_no);
+		sqlSession.update("comments.comments_update", b_no);
 
 	}
 	
 	
 	@Override
 	public void Comments_update_min(int b_no) { 
-		sqlSession.delete("comments.comments_update_min", b_no);
+		sqlSession.update("comments.comments_update_min", b_no);
 
 	}
 
@@ -62,6 +62,7 @@ public class CommentsDAOImpl implements CommentsDAO {
 		int count = 0;
 		for(CommentsDTO dto : items) {
 			JSONObject jsonObj = new JSONObject();
+			jsonObj.put("c_no", dto.getC_no());
 			jsonObj.put("userid", dto.getUserid());
 			jsonObj.put("comments", dto.getComments());
 			jsonObj.put("date", dto.getWrite_date());

@@ -17,6 +17,11 @@ h3 {
     text-underline-position: under;
 	
 } 
+  .b {
+  	margin-top: 10px;
+	background: black;
+	color: white;
+}
 
 </style>
 <script>
@@ -69,12 +74,10 @@ function cloth_insert(){
 			<input type="checkbox" name="category" value="TOP" onclick='checkOnlyOne(this)'> TOP
 			<input type="checkbox" name="category" value="BOTTOM" onclick='checkOnlyOne(this)'> BOTTOM
 			<input type="checkbox" name="category" value="SHOES" onclick='checkOnlyOne(this)'> SHOES <br>
-			<input type="file" name="file1" id="file1"><br>
-			<input type ="submit" value="ADD" onclick = "cloth_insert()">
+			<input style = "margin-top: 10px; margin-bottom: 10px;"type="file" name="file1" id="file1"><br>
+			<input class = "b" type ="submit" value="ADD" onclick = "cloth_insert()">
 		</form>
-		<!-- <div id = "div1">
 
-</div> -->
 
 	</div>
 </body>

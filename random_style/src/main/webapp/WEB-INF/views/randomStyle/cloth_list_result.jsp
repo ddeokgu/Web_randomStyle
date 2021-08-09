@@ -48,11 +48,11 @@ function cloth_delete() {
 	</tr>
 		
 </c:forEach>
-<tr align = "right">
+<!-- <tr align = "right">
 <td colspan = "4">
 <button type="button"
 						onclick="cloth_delete()">DELETE</button>
-</tr>
+</tr> -->
 </table>
 
 

@@ -95,7 +95,8 @@ div.right {
 		<a style = "color: #FFDDA6;"href="${path}/member/main.do">오늘의 랜덤 스타일</a>
 	</h1>
 	<h3>나의 정보</h3>
-	<div id="div1" class="left">
+	<div id="div1" class="left"style="margin-top: 20px;">
+	<h4 style="text-align: center; margin-bottom: 35px;">내가 쓴 글</h4>
 		<table
 			style="border: 1px solid green; border-collapse: collapse; width: 100%;">
 			<tr align="center"
@@ -132,9 +133,10 @@ div.right {
 
 		</table>
 	</div>
-	<h4 style="text-align: center; margin-bottom: 5px;">나의 아이템</h4>
+	
 	<br>
-	<div id="div2" class="right">
+	<div id="div2" class="right" >
+	<h4 style="text-align: center; margin-bottom: 5px;">나의 아이템</h4>
 		<table style="width: 100%;">
 			<tr align="center">
 				<td><input type="radio" name="category" value="outer" 
@@ -155,8 +157,8 @@ div.right {
 				<td>
 					<div style="border:none;" id="list"></div>
 			</tr>
-			<tr align="center">
-				<td>
+			<tr align="right">
+				<td style="padding-right: 30px;">
 					<button type="button"
 						onclick="location.href = '${path}/cloth/cloth.do'">ADD</button>
 			</tr>

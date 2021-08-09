@@ -7,6 +7,16 @@
 <title>Insert title here</title>
 <%@include file = "../include/header.jsp" %>
 <link rel="stylesheet" href="${path}/include/style.css">
+<style>
+ button {
+	background:#FF6262;
+	color: white;
+	border: 1px solid black;
+	padding: 1px 6px 1px 6px;
+	height: 21px;
+	/* border: none; */
+}
+</style>
 <script>
 function cloth_delete(){
 	var no = $("#no").val();
@@ -28,7 +38,7 @@ function cloth_delete(){
 	<h1 class="a">
 		<a style = "color: #FFDDA6;"href="${path}/member/main.do">오늘의 랜덤 스타일</a>
 	</h1>
-	<table style="margin-left:auto; margin-right:auto; border:1px solid red;">
+	<table style="margin-left:auto; margin-right:auto; border:none;">
 	<tr>
 		<td><input type="hidden" id="no" value="${dto.no}">
 	</tr>

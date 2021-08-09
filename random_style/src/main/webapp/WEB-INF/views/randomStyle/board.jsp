@@ -26,6 +26,11 @@ h3 {
     text-underline-position: under;
 	
 } 
+  .button {
+  	margin-top: 10px;
+	background: black;
+	color: white;
+}
 </style>
 </head>
 <body>
@@ -35,7 +40,7 @@ h3 {
 
 <h3>게시판</h3>
 
-<table style="margin-left:auto; margin-right:auto; border:1px solid red;">
+<table style="margin-left:auto; margin-right:auto; border:1px solid black; border-radius: 10px;">
 	<tr align = "center">
 		<th>No.</th>
 		<th>ID</th>
@@ -59,7 +64,7 @@ h3 {
 	
 </table>
 <div style = "text-align:center;">
-<input style = "width:100px;" type = "button" id = "btnWrite" value ="글쓰기">
+<input class="button"; style = "width:100px;" type = "button" id = "btnWrite" value ="WRITE">
 </div>
 </body>
 </html>

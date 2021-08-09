@@ -29,6 +29,16 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/views/error/404code.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/views/error/500code.jsp</location>
+	</error-page>
+	
 		<filter>
 		<filter-name>encoding</filter-name>   
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

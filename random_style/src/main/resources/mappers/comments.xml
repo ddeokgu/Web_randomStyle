@@ -26,11 +26,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	<update id = "comments_update"> 
-		update board set comments=comments + 1 where no = #{bno}
+		update board set comments=comments + 1 where no = #{b_no}
 	 </update>
 	 
 	 <update id = "comments_update_min"> 
-		update board set comments=comments - 1 where no = #{bno}
+		update board set comments=comments - 1 where no = #{b_no}
 	 </update>
 	
 	

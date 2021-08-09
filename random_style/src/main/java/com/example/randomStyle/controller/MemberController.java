@@ -109,6 +109,7 @@ public class MemberController {
 	@RequestMapping("and_id_check.do")
 	@ResponseBody
 	public int and_id_check(@RequestParam String userid) {
+		System.out.println(userid);
 		int result = 0;
 		result = memberService.idCheck(userid);
 		return result;
